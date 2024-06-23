@@ -27,7 +27,7 @@ function SearchBar() {
     }
   return (
     <form
-    className='bg-slate-200 p-3 rounded-full flex items-center shadow-lg'
+    className='bg-slate-200 p-3 rounded-full flex items-center shadow-lg w-full justify-between'
   >
     <input
       type='text'
