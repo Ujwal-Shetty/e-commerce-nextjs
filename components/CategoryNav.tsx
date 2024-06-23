@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react'
 
 const getCategoryList =async ()=>{
-    try {
+   try {
    const res = await fetch("http://localhost:8090/api/category", {
    cache: "no-store",
              });
@@ -27,7 +27,7 @@ async function CategoryNav() {
     <div className='h-16 w-full flex gap-3 overflow-x-auto'>
        {
         category.map(
-            (res:any)=>(<Link href={`/category/${res.id}`}><div className='flex bg-black text-white rounded-full h-12 items-center pl-4 pr-4'>{res.name}</div></Link>)
+            (res:any)=>(<Link href={`/category/${res.id}`}><div className='flex bg-slate-700 text-white rounded-full h-12 items-center pl-4 pr-4'>{res.name}</div></Link>)
         )
        }
     </div>

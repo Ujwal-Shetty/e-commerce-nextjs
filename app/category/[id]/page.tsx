@@ -22,21 +22,27 @@ async function page({params}:{params:any}) {
       console.log( categoryData)
 
   return (
-    <div className='sm:pt-20 pt-3'>
-        <div className='pr-2 pl-2'>
+    <div className='sm:pt-20 pt-3 '>
+        <div className='pr-2 pl-2 pb-3'>
         <CategoryNav/>
         </div>
-        <div className=' flex flex-wrap  p-2 gap-2 w-full '>
+        <div className='pb-4 pl-3 text-xl font-semibold'>
+        <p>Results of {categoryData.name} :</p>
+        </div>
+        
+        <div className='flex flex-wrap gap-5 pl-4'>
         {categoryData.products.map(
         (res:any)=>(
-          <ListingItem key={res.id} listing={res}/>
+         
+           <ListingItem key={res.id} listing={res}/>
+         
+          
         )
       )
 
       }
         </div>
         
-        page
     </div>
   )
 }

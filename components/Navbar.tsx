@@ -27,7 +27,9 @@ export default function Navbar() {
          <IoMdNotificationsOutline className='text-2xl'/>
          </button>
          <Link href='/cart'>
-         <HiOutlineShoppingCart className='text-2xl' />
+         <div className='flex gap-2'>
+         <HiOutlineShoppingCart className='text-2xl' /><p className='sm:block hidden'>Cart</p>
+         </div>
          </Link>
           <Avatar/>
       </div>

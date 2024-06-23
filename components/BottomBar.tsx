@@ -7,7 +7,7 @@ function BottomBar() {
        <div className='bg-white text-black p-3 pr-6 pl-6 rounded-full border-2 border-black'>
         <p>Add to cart</p>
        </div>
-       <div className='bg-black text-white p-3 pr-6 pl-6 rounded-full border-2 border-black'>
+       <div className='bg-black text-white p-3 pr-10 pl-10 rounded-full border-2 border-black'>
          <p>Buy now</p>
        </div>
        </div>
