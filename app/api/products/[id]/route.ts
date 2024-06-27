@@ -7,11 +7,11 @@ import { connectToDatabase } from '@/libs/server-helpers';
 export const GET = async (request, { params }) => {
   try {
     const { id } = params;
-    console.log(id)
+    const proId=parseInt(id)
     await connectToDatabase();
     const product = await prisma.product.findUnique({
         where: {
-            id
+            id:proId
         }
     });
 
