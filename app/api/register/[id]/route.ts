@@ -6,10 +6,9 @@ import { connectToDatabase } from '@/libs/server-helpers';
 
 export const GET = async (request, {params}) => {
     try {
-
         const {id} = params;
         const userId=parseInt(id)
-        console.log(id)
+        
       await connectToDatabase();
 
       const user = await prisma.user.findUnique({
@@ -25,7 +24,7 @@ export const GET = async (request, {params}) => {
               {status: 404}
           )
       }
-  
+
       return NextResponse.json(user);
     } catch (err) {
       return NextResponse.json({ message: "GET Error", err }, { status: 500 });

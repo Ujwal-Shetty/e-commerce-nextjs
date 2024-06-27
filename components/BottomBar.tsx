@@ -21,7 +21,7 @@ function BottomBar({id}:{id:any}) {
     .finally(()=>{
       axios.post('/api/cartItem',id)
       .then((res) => {
-       
+       alert(res.data)
        console.log(res)
        
  

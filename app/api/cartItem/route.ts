@@ -30,23 +30,21 @@ export async function POST(request:any,{ params }:{params:any}){
                 cartItem:true
               }
         })
-       console.log(cart)
-
-       console.log(cart.cartItem)
+       
 
       const res= cart.cartItem.map(res=>res.productId)
-      console.log(res)
+      
 
       
 
        const proId=await request.json();
-       console.log(proId)
+      
 
        if(res.includes(proId)){
         return NextResponse.json('Item already exists in cart')
        }
        else{
-        const cartItem = await prisma.cartItem.create({
+         await prisma.cartItem.create({
             data:{
                product:{
                    connect:{
@@ -63,7 +61,7 @@ export async function POST(request:any,{ params }:{params:any}){
             }
        });
         
-       return NextResponse.json(cartItem)
+       return NextResponse.json('Item Added to cart')
 
        }
         

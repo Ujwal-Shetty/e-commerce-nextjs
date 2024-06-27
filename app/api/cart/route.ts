@@ -10,7 +10,7 @@ import { authOptions } from '../auth/[...nextauth]/route';
 export async function POST(request:any,{ params }:{params:any}){
     try{
         const session=await getServerSession(authOptions)
-        console.log(session)
+        
 
         await connectToDatabase();
         
@@ -23,7 +23,7 @@ export async function POST(request:any,{ params }:{params:any}){
                 cart:true
               }
            })
-           console.log(user.cart)
+           
 
            if(user.cart.length === 0){
             const cart = await prisma.cart.create({

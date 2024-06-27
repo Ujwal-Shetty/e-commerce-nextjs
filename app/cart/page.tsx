@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth';
 import React from 'react'
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import CartItem from '@/components/CartItem';
+import RemoveCartItem from '@/components/RemoveCartItem';
 
 async function Cart() {
    
@@ -17,7 +18,6 @@ const getCart=async()=>{
     }
     return await response.json()
    
-
   }catch(err){
      console.log(err)
   }
@@ -26,17 +26,28 @@ const getCart=async()=>{
 const categoryData=await getCart()
 console.log( categoryData.cartItem)
   return (
-    <div>
+    <div className=' p-3 sm:pt-20 '>
+      <div className="flex justify-between items-center">
+                    <h1 className="font-bold  text-2xl">Cart</h1>
+                </div>
+
+    <div className='flex sm:flex-row flex-col'>
+        <div className='sm:w-[60%] w-full flex flex-col gap-3 h-[80%] overflow-auto'>
            {categoryData.cartItem.map(
         (res:any)=>(
-         
-          <CartItem key={res.product.id} listing={res.product} />
-         
-          
-        )
-      )
+         <div className='bg-slate-200 rounded-xl'>
+          <CartItem key={res.product.id} listing={res.product}/>
+          <RemoveCartItem key={res.id} id={res.id}/>
+         </div>
+          )  )  }
+      </div>
 
-      }
+      <div className='sm:w-[40%] w-full'>
+        Shipping
+      </div>
+
+      </div>
+      
     </div>
   )
 }

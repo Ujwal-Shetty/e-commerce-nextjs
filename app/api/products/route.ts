@@ -9,7 +9,7 @@ export async function GET() {
     try{
         await connectToDatabase();
         const products = await prisma.product.findMany()
-          console.log(products)
+          
         return NextResponse.json({ products });
     }catch(error){
         console.log(error)

@@ -7,7 +7,7 @@ import { connectToDatabase } from '@/libs/server-helpers';
 export const GET = async (request, { params }) => {
   try {
     const { id } = params;
-    console.log(id)
+    
     const catId=parseInt(id)
     await connectToDatabase();
     const category = await prisma.category.findUnique({
